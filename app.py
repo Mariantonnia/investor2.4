@@ -257,10 +257,14 @@ else:
 
             if enviar:
                 try:
+                    creds_json_str = st.secrets["gcp_service_account"]
+                    creds_json = json.loads(creds_json_str)
                     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-                    credentials = ServiceAccountCredentials.from_json_keyfile_name("src/credenciales.json", scope)
-                    client = gspread.authorize(credentials)
-                    sheet = client.open("cuestionario_ia").sheet1
+                    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
+                    client = gspread.authorize(creds)
+                    sheet = client.open('BBDD_RESPUESTAS').sheet1
+                    
+            
             
                     productos_str = ", ".join(productos)
             
