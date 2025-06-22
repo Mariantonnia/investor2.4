@@ -256,115 +256,115 @@ else:
             enviar = st.form_submit_button("Enviar respuestas")
 
             if enviar:
-    try:
-        scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-        credentials = ServiceAccountCredentials.from_json_keyfile_name("src/credenciales.json", scope)
-        client = gspread.authorize(credentials)
-        sheet = client.open("cuestionario_ia").sheet1
-
-        productos_str = ", ".join(productos)
-
-        # Cálculo del puntaje total del test tradicional
-        puntos = 0
-
-        # 2.1 Objetivo
-        puntos += {
-            "Preservar el capital (riesgo bajo)": 1,
-            "Obtener rentabilidad ligeramente por encima del tipo de interés de mercado (riesgo bajo-medio)": 2,
-            "Obtener rentabilidad significativamente por encima del tipo de interés de mercado (riesgo medio-alto)": 3,
-            "Obtener la máxima rentabilidad posible (riesgo muy alto)": 4,
-        }.get(objetivo, 0)
-
-        # 2.2 Horizonte
-        puntos += {
-            "Menos de 1 año": 1,
-            "Entre 1 y 3 años": 2,
-            "Entre 3 y 5 años": 3,
-            "Más de 5 años": 4,
-        }.get(horizonte, 0)
-
-        # 2.3 Formación
-        puntos += {
-            "Educación no universitaria": 1,
-            "Educación universitaria o superior": 2,
-            "Educación universitaria o superior relacionada con los mercados financieros o la economía": 3,
-        }.get(formación, 0)
-
-        # 2.4 Cargo
-        puntos += {
-            "Nunca": 1,
-            "Menos de 1 año": 2,
-            "Entre 1 y 3 años": 3,
-            "Más de 3 años": 4,
-        }.get(cargo, 0)
-
-        # 2.5 Conocimiento
-        puntos += {
-            "No estoy familiarizado": 1,
-            "Entiendo los conceptos básicos como la inflación, el tipo de interés": 2,
-            "Entiendo conceptos financieros complejos como volatilidad, riesgo de liquidez, convertibilidad en acciones": 3,
-        }.get(conocimiento, 0)
-
-        # 3.1 Productos
-        puntos += len(productos)
-
-        # 3.2 Volatilidad
-        puntos += {
-            "Mantendría la inversión": 4,
-            "Mantendría la inversión pero haría mas seguimiento": 3,
-            "Vendería una parte de la inversión": 2,
-            "Vendería toda la inversión": 1,
-        }.get(volatilidad, 0)
-
-        # 3.3 Corto plazo
-        puntos += {
-            "0%": 1,
-            "Hasta un 5%": 2,
-            "Hasta un 10%": 3,
-            "Hasta un 25%": 4,
-            "Más del 25%": 5,
-        }.get(corto_plazo, 0)
-
-        # 4.1 Patrimonio
-        puntos += {
-            "Menos del 25%": 1,
-            "Entre el 25% y el 50%": 2,
-            "Más del 50%": 3,
-        }.get(patrimonio, 0)
-
-        # 4.2 Necesidad
-        puntos += {
-            "Más del 50%": 1,
-            "Entre el 25% y el 50%": 2,
-            "Menos del 25%": 3,
-        }.get(necesidad, 0)
-
-        fila = st.session_state.reacciones + [
-            str(st.session_state.perfil_valores.get("Ambiental", "")),
-            str(st.session_state.perfil_valores.get("Social", "")),
-            str(st.session_state.perfil_valores.get("Gobernanza", "")),
-            str(st.session_state.perfil_valores.get("Riesgo", "")),
-            objetivo or "",
-            horizonte or "",
-            formación or "",
-            cargo or "",
-            conocimiento or "",
-            productos_str or "",
-            volatilidad or "",
-            corto_plazo or "",
-            patrimonio or "",
-            necesidad or "",
-            edad or "",
-            sostenibilidad or "",
-            fondo_clima or "",
-            porcentaje or ""
-        ]
-
-        # Añadir puntaje al final
-        fila.append(str(puntos))
-
-        sheet.append_row(fila)
-
-        st.success("¡Formulario enviado correctamente!")
-    except Exception as e:
-        st.error(f"Error al guardar en Google Sheets: {e}")
+                try:
+                    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+                    credentials = ServiceAccountCredentials.from_json_keyfile_name("src/credenciales.json", scope)
+                    client = gspread.authorize(credentials)
+                    sheet = client.open("cuestionario_ia").sheet1
+            
+                    productos_str = ", ".join(productos)
+            
+                    # Cálculo del puntaje total del test tradicional
+                    puntos = 0
+            
+                    # 2.1 Objetivo
+                    puntos += {
+                        "Preservar el capital (riesgo bajo)": 1,
+                        "Obtener rentabilidad ligeramente por encima del tipo de interés de mercado (riesgo bajo-medio)": 2,
+                        "Obtener rentabilidad significativamente por encima del tipo de interés de mercado (riesgo medio-alto)": 3,
+                        "Obtener la máxima rentabilidad posible (riesgo muy alto)": 4,
+                    }.get(objetivo, 0)
+            
+                    # 2.2 Horizonte
+                    puntos += {
+                        "Menos de 1 año": 1,
+                        "Entre 1 y 3 años": 2,
+                        "Entre 3 y 5 años": 3,
+                        "Más de 5 años": 4,
+                    }.get(horizonte, 0)
+            
+                    # 2.3 Formación
+                    puntos += {
+                        "Educación no universitaria": 1,
+                        "Educación universitaria o superior": 2,
+                        "Educación universitaria o superior relacionada con los mercados financieros o la economía": 3,
+                    }.get(formación, 0)
+            
+                    # 2.4 Cargo
+                    puntos += {
+                        "Nunca": 1,
+                        "Menos de 1 año": 2,
+                        "Entre 1 y 3 años": 3,
+                        "Más de 3 años": 4,
+                    }.get(cargo, 0)
+            
+                    # 2.5 Conocimiento
+                    puntos += {
+                        "No estoy familiarizado": 1,
+                        "Entiendo los conceptos básicos como la inflación, el tipo de interés": 2,
+                        "Entiendo conceptos financieros complejos como volatilidad, riesgo de liquidez, convertibilidad en acciones": 3,
+                    }.get(conocimiento, 0)
+            
+                    # 3.1 Productos
+                    puntos += len(productos)
+            
+                    # 3.2 Volatilidad
+                    puntos += {
+                        "Mantendría la inversión": 4,
+                        "Mantendría la inversión pero haría mas seguimiento": 3,
+                        "Vendería una parte de la inversión": 2,
+                        "Vendería toda la inversión": 1,
+                    }.get(volatilidad, 0)
+            
+                    # 3.3 Corto plazo
+                    puntos += {
+                        "0%": 1,
+                        "Hasta un 5%": 2,
+                        "Hasta un 10%": 3,
+                        "Hasta un 25%": 4,
+                        "Más del 25%": 5,
+                    }.get(corto_plazo, 0)
+            
+                    # 4.1 Patrimonio
+                    puntos += {
+                        "Menos del 25%": 1,
+                        "Entre el 25% y el 50%": 2,
+                        "Más del 50%": 3,
+                    }.get(patrimonio, 0)
+            
+                    # 4.2 Necesidad
+                    puntos += {
+                        "Más del 50%": 1,
+                        "Entre el 25% y el 50%": 2,
+                        "Menos del 25%": 3,
+                    }.get(necesidad, 0)
+            
+                    fila = st.session_state.reacciones + [
+                        str(st.session_state.perfil_valores.get("Ambiental", "")),
+                        str(st.session_state.perfil_valores.get("Social", "")),
+                        str(st.session_state.perfil_valores.get("Gobernanza", "")),
+                        str(st.session_state.perfil_valores.get("Riesgo", "")),
+                        objetivo or "",
+                        horizonte or "",
+                        formación or "",
+                        cargo or "",
+                        conocimiento or "",
+                        productos_str or "",
+                        volatilidad or "",
+                        corto_plazo or "",
+                        patrimonio or "",
+                        necesidad or "",
+                        edad or "",
+                        sostenibilidad or "",
+                        fondo_clima or "",
+                        porcentaje or ""
+                    ]
+            
+                    # Añadir puntaje al final
+                    fila.append(str(puntos))
+            
+                    sheet.append_row(fila)
+            
+                    st.success("¡Formulario enviado correctamente!")
+                except Exception as e:
+                    st.error(f"Error al guardar en Google Sheets: {e}")
