@@ -342,6 +342,29 @@ else:
                         "Entre el 25% y el 50%": 2,
                         "Menos del 25%": 3,
                     }.get(necesidad, 0)
+
+                    puntos_esg = 0
+                    
+                    puntos_esg += {
+                        "Sí": 2,
+                        "No": 0,
+                    }.get(sostenibilidad, 0)
+            
+                    # 6.2 ¿Cuál de los siguientes aspectos te interesan que se tengan en cuenta?
+                    puntos_esg += {
+                        "Relacionadas con el clima y el medioambiente": 2,
+                        "Relacionadas con asuntos sociales y de gobernanza": 2,
+                        "Ambas": 3,
+                        "Ninguna": 0,
+                    }.get(fondo_clima, 0)
+            
+                    # 6.3 ¿Quieres incluir en tu cartera inversiones ESG?
+                    puntos_esg += {
+                        "Si, al menos un 5%": 1,
+                        "Si, al menos un 15%": 2,
+                        "Si, al menos un 35%": 3,
+                        "No": 0,
+                        }.get(porcentaje, 0)
             
                     fila = st.session_state.reacciones + [
                         str(st.session_state.perfil_valores.get("Ambiental", "")),
@@ -366,6 +389,7 @@ else:
             
                     # Añadir puntaje al final
                     fila.append(str(puntos))
+                    fila.append(str(puntos_esg))
             
                     sheet.append_row(fila)
             
