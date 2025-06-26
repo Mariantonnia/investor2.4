@@ -113,8 +113,8 @@ st.markdown("""
 **Primero interactuarás con un chatbot para evaluar tu perfil ESG y de riesgo.** 
 **Al final, completarás un test tradicional de perfilado.**
 **Todos los datos facilitados son anónimos**
-**Por favor al finalizar haz click en el Botón "Enviar respuestas"**
-**Muchas gracias por tu colaboración**
+**Por favor al finalizar haz click en el Botón "Enviar respuestas".**
+**Muchas gracias por tu colaboración.**
 """)
 
 # Mostrar historial
