@@ -38,7 +38,7 @@ noticias = [
     "Iberdrola, elegida la empresa española con mejor gobierno corporativo por ‘World Finance’",
     "El Ibex 35 sufre su mayor caída desde abril tras las amenazas de Trump a España por el gasto militar",
     "Cruz Roja y la Fundación Amancio Ortega palían la soledad de 13.000 mayores gracias a Voces en Red",
-    "Les haremos pagar el doble": la amenaza de Trump a España, el único país de la OTAN que se niega a gastar un 5% de su PIB en defensa"
+    '"Les haremos pagar el doble": la amenaza de Trump a España, el único país de la OTAN que se niega a gastar un 5% de su PIB en defensa'
 ]
 
 # Plantillas de LLM
