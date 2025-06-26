@@ -33,11 +33,12 @@ preguntas_inversor = [
 
 # Noticias para análisis
 noticias = [
-    "Repsol, entre las 50 empresas que más responsabilidad histórica tienen en el calentamiento global",
-    "Amancio Ortega crea un fondo de 100 millones de euros para los afectados de la dana",
-    "Freshly Cosmetics despide a 52 empleados en Reus, el 18% de la plantilla",
-    "Wall Street y los mercados globales caen ante la incertidumbre por la guerra comercial y el temor a una recesión",
-    "El mercado de criptomonedas se desploma: Bitcoin cae a 80.000 dólares, las altcoins se hunden en medio de una frenética liquidación"
+    "Las empresas 'borran' la ESG de sus presentaciones de resultados",
+    "Duro Felguera activa un ERE para un máximo de 699 empleados en pleno preconcurso",
+    "Iberdrola, elegida la empresa española con mejor gobierno corporativo por ‘World Finance’",
+    "El Ibex 35 sufre su mayor caída desde abril tras las amenazas de Trump a España por el gasto militar",
+    "Cruz Roja y la Fundación Amancio Ortega palían la soledad de 13.000 mayores gracias a Voces en Red",
+    "Les haremos pagar el doble": la amenaza de Trump a España, el único país de la OTAN que se niega a gastar un 5% de su PIB en defensa"
 ]
 
 # Plantillas de LLM
