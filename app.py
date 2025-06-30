@@ -71,7 +71,7 @@ cadena_reaccion = LLMChain(llm=llm, prompt=prompt_reaccion)
 
 plantilla_perfil = """
 Análisis de respuestas: {analisis}
-Genera un perfil detallado del inversor basado en sus respuestas, enfocándote en los pilares ESG (Ambiental, Social y Gobernanza) y su aversión al riesgo. 
+Genera un perfil detallado del inversor basado en las respuestas, teniendo en cuenta lo que se ha preguntado, enfocándote en los pilares ESG (Ambiental, Social y Gobernanza) y su aversión al riesgo. 
 Asigna una puntuación de 0 a 100 para cada pilar ESG y para el riesgo, donde 0 indica ninguna preocupación y 100 máxima preocupación o aversión.
 Devuelve las 4 puntuaciones en formato: Ambiental: [puntuación], Social: [puntuación], Gobernanza: [puntuación], Riesgo: [puntuación]
 """
@@ -108,7 +108,7 @@ if "historial" not in st.session_state:
     st.session_state.perfil_valores = {}
 
 # Interfaz
-st.title("Chatbot de Análisis del perfil ESG del inversor")
+st.title("Chatbot de Análisis del perfil ESG y riesgo del inversor")
 st.markdown("""
 **Primero interactuarás con un chatbot para evaluar tu perfil ESG y de riesgo.** 
 **Al final, completarás un test tradicional de perfilado.**
@@ -187,7 +187,7 @@ else:
         st.write(f"**Perfil del inversor:** Ambiental: {st.session_state.perfil_valores['Ambiental']}, " +
                 f"Social: {st.session_state.perfil_valores['Social']}, " +
                 f"Gobernanza: {st.session_state.perfil_valores['Gobernanza']}, " +
-                f"Riesgo: {st.session_state.perfil_valores['Riesgo']}")
+                f"Riesgo: {st.session_state.perfil_valores['Aversión al Riesgo']}")
 
     fig, ax = plt.subplots()
     ax.bar(st.session_state.perfil_valores.keys(), st.session_state.perfil_valores.values(), color="skyblue")
