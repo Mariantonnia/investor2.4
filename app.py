@@ -381,7 +381,7 @@ else:
                         "No": 0,
                         }.get(porcentaje, 0)
             
-                    fila = st.session_state.reacciones + [
+                    fila = st.session_state.reacciones + st.session_state.historial [
                         str(st.session_state.perfil_valores.get("Ambiental", "")),
                         str(st.session_state.perfil_valores.get("Social", "")),
                         str(st.session_state.perfil_valores.get("Gobernanza", "")),
