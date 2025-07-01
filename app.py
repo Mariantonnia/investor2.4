@@ -36,7 +36,7 @@ noticias = [
     "Las empresas 'borran' la ESG de sus presentaciones de resultados",
     "Duro Felguera activa un ERE para un máximo de 699 empleados en pleno preconcurso",
     "Iberdrola, elegida la empresa española con mejor gobierno corporativo por ‘World Finance’",
-    "El Ibex 35 sufre su mayor caída desde abril tras las amenazas de Trump a España por el gasto militar",
+    "Europa se prepara para fijar su objetivo de reducción de emisiones para el año 2040",
     "Cruz Roja y la Fundación Amancio Ortega palían la soledad de 13.000 mayores gracias a Voces en Red",
     '"Les haremos pagar el doble": la amenaza de Trump a España, el único país de la OTAN que se niega a gastar un 5% de su PIB en defensa'
 ]
@@ -73,7 +73,8 @@ plantilla_perfil = """
 Análisis de respuestas: {analisis}
 Genera un perfil detallado del inversor basado en las respuestas, teniendo en cuenta lo que se ha preguntado, enfocándote en los pilares ESG (Ambiental, Social y Gobernanza) y su aversión al riesgo. 
 Asigna una puntuación de 0 a 100 para cada pilar ESG y para el riesgo, donde 0 indica ninguna preocupación y 100 máxima preocupación o aversión.
-Devuelve las 4 puntuaciones en formato: Ambiental: [puntuación], Social: [puntuación], Gobernanza: [puntuación], Riesgo: [puntuación]
+IMPORTANTE: Devuelve las 4 puntuaciones EXCLUSIVAMENTE en el siguiente formato, sin texto adicional:
+Ambiental: [puntuación], Social: [puntuación], Gobernanza: [puntuación], Riesgo: [puntuación]
 """
 prompt_perfil = PromptTemplate(template=plantilla_perfil, input_variables=["analisis"])
 cadena_perfil = LLMChain(llm=llm, prompt=prompt_perfil)
