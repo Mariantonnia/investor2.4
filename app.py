@@ -61,12 +61,13 @@ prompt_evaluacion = PromptTemplate(template=plantilla_evaluacion, input_variable
 cadena_evaluacion = LLMChain(llm=llm, prompt=prompt_evaluacion)
 
 plantilla_reaccion = """
+Noticia previa: {noticia}
 Reacción del inversor: {reaccion}
-Genera ÚNICAMENTE una pregunta de seguimiento enfocada en profundizar en su opinión.
-Ejemplo:  
+Genera ÚNICAMENTE una pregunta de seguimiento enfocada en profundizar en su opinión, tomando en cuenta tanto la noticia como la reacción del inversor.
+Ejemplo:
 "¿Consideras que la existencia de mecanismos robustos de control interno y transparencia podría mitigar tu preocupación por la gobernanza corporativa en esta empresa?"
 """
-prompt_reaccion = PromptTemplate(template=plantilla_reaccion, input_variables=["reaccion"])
+prompt_reaccion = PromptTemplate(template=plantilla_reaccion, input_variables=["noticia", "reaccion"])
 cadena_reaccion = LLMChain(llm=llm, prompt=prompt_reaccion)
 
 plantilla_perfil = """
