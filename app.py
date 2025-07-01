@@ -197,7 +197,7 @@ else:
         st.write(f"**Perfil del inversor:** Ambiental: {st.session_state.perfil_valores['Ambiental']}, " +
                 f"Social: {st.session_state.perfil_valores['Social']}, " +
                 f"Gobernanza: {st.session_state.perfil_valores['Gobernanza']}, " +
-                f"Riesgo: {st.session_state.perfil_valores['Aversión al Riesgo']}")
+                f"Riesgo: {st.session_state.perfil_valores['Riesgo']}")
 
     fig, ax = plt.subplots()
     ax.bar(st.session_state.perfil_valores.keys(), st.session_state.perfil_valores.values(), color="skyblue")
