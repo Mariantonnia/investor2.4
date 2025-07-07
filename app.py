@@ -126,8 +126,6 @@ st.title("Chatbot de Análisis del perfil ESG y riesgo del inversor")
 st.markdown("""
 **Primero interactuarás con un chatbot para evaluar tu perfil ESG y de riesgo.**
 
-**Los criterios ESG (ambientales, sociales y de gobernanza) se usan para evaluar cómo una empresa impacta el medio ambiente, cómo trata a las personas (empleados, comunidad) y cómo se gestiona internamente (ética, transparencia) y ayudan a tomar decisiones responsables en inversiones y negocios.**
-
 **Al final, completarás un test tradicional de perfilado.**
 
 **Todos los datos facilitados son anónimos**
